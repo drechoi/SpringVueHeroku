@@ -1,1 +1,1 @@
-web: java -jar server/target/springboot-vue-heroku-server-0.0.1-SNAPSHOT.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar server/target/springboot-vue-heroku-server-0.0.1-SNAPSHOT.jar
