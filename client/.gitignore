@@ -16,6 +16,8 @@ selenium-debug.log
 *.njsproj
 *.sln
 
-## generated folders
+## generated folders & files
 /target/
 /node/
+
+package-lock.json
