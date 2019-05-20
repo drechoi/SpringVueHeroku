@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 	Logger logger = Logger.getLogger(DemoController.class);
 
-	@GetMapping("/")
+	@GetMapping("/api/")
 	public String index(){
 		logger.info("index");
 		return "This is server index"; 		
