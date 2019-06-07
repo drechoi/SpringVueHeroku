@@ -1,0 +1,21 @@
+spring:
+  profiles: dev_h2
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+name: dev-local-H2
+environment: dev_h2
+---
+spring:
+    profiles: prod
+    datasource:
+      url: ${JDBC_DATABASE_URL}
+      username: ${JDBC_DATABASE_USERNAME}
+      password: ${JDBC_DATABASE_PASSWORD}
+    jpa:
+      hibernate.ddl-auto: update
+      generate-ddl: true
+      show-sql: true
+name: prod-YAML
+environment: production

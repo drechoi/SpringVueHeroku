@@ -5,6 +5,7 @@ import com.example.demo.repository.DemoRepository;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
@@ -15,11 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping(path="${api_prefix}/demo")
 public class DemoController {
-    @Autowired
-    private DemoRepository demoRepository;
+    private final DemoRepository demoRepository;
 
     @Autowired
-    public DemoController(RequestMappingHandlerMapping handlerMapping) {
+    //public DemoController(RequestMappingHandlerMapping handlerMapping, DemoRepository demoRepository) {
+    public DemoController(RequestMappingHandlerMapping handlerMapping, DemoRepository demoRepository) {
+        this.demoRepository = demoRepository;
+
         logger.info("--- Showing me all controllers endpoint ---");
         for(RequestMappingInfo info : handlerMapping.getHandlerMethods().keySet())
         {
@@ -42,6 +45,14 @@ public class DemoController {
 
 	@GetMapping("/all")
     public List<Demo> getAll(){
-	    return demoRepository.getAll();
+        logger.info("all");
+	    return demoRepository.findAll();
+    }
+
+
+    @GetMapping("/lazy_create/{name}")
+    public Demo getDummyById(@PathVariable String name){
+        Demo demo = Demo.builder().name(name).build();
+        return demoRepository.save(demo);
     }
 }
