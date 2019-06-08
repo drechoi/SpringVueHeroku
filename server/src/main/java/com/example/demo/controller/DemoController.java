@@ -16,6 +16,8 @@ import java.util.List;
 @RestController
 @RequestMapping(path="${api_prefix}/demo")
 public class DemoController {
+	private Logger logger = Logger.getLogger(DemoController.class);
+
     private final DemoRepository demoRepository;
 
     @Autowired
@@ -24,16 +26,13 @@ public class DemoController {
         this.demoRepository = demoRepository;
 
         logger.info("--- Showing me all controllers endpoint ---");
-        for(RequestMappingInfo info : handlerMapping.getHandlerMethods().keySet())
-        {
+        for(RequestMappingInfo info : handlerMapping.getHandlerMethods().keySet()) {
             logger.info(info.toString());
         }
     }
 
-	Logger logger = Logger.getLogger(DemoController.class);
-
 	@GetMapping("/")
-	public String index(){
+	public String index() {
 		logger.info("index");
 		return "This is server index";
 	}

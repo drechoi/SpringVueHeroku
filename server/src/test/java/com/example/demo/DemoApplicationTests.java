@@ -18,6 +18,13 @@ import static org.junit.Assert.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoApplicationTests {
 
+
+	@Value("${name}")
+	private String appName;
+
+	@Value("${environment}")
+	private String env;
+
 	@LocalServerPort
 	private int port;
 
@@ -32,6 +39,8 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println(appName);
+		System.out.println("Env: " + env);
 	}
 
 	@Test

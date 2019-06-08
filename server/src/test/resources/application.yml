@@ -1,0 +1,10 @@
+spring:
+  profiles: default
+  batch:
+    initialize-schema: always
+  jpa:
+    hibernate.ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+name: test-local-H2
+environment: test
