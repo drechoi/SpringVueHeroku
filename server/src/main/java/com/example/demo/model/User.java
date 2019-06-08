@@ -1,10 +1,7 @@
 package com.example.demo.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(toBuilder = true)
 @Entity
 @Table(name="APPUSER")
 public class User {
@@ -21,4 +19,6 @@ public class User {
 
     @Column(name="EXTID", unique = true)
     private String extId;
+
+    private String userName;
 }
