@@ -21,9 +21,15 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    semi: [2, "always"],
+   "comma-dangle": ["error", "only-multiline"],
+   'space-before-function-paren': ["error", "never"],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // vue recommand settings
+    "vue/name-property-casing": ["error", "PascalCase"],
+    "vue/max-attributes-per-line": ["error", { "singleline": 3, "multiline": { "max": 1, "allowFirstLine": true } }]
   }
 }

@@ -1,5 +1,5 @@
 spring:
-  profiles: dev_h2
+  profiles: dev
   batch:
     initialize-schema: always
   jpa:
@@ -8,6 +8,9 @@ spring:
     show-sql: true
 name: dev-local-H2
 environment: dev_h2
+server:
+  port: 8081
+
 ---
 spring:
   profiles: prod
@@ -23,3 +26,5 @@ spring:
     show-sql: true
 name: prod-YAML
 environment: production
+server:
+  port: 8080
