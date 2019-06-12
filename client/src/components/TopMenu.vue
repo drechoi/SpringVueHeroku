@@ -38,7 +38,7 @@
             <img
               :src="profile.picture"
               height="30">
-            <em>{{ profile.name }}</em>
+            <em>{{ profile.userName }}</em>
           </template>
           <b-dropdown-item to="/profile">Profile</b-dropdown-item>
           <b-dropdown-item @click.prevent="logout">Sign Out</b-dropdown-item>
@@ -70,17 +70,13 @@ export default {
       // this.$auth.logOut();
       this.$store.dispatch('logout');
     },
-    // handleLoginEvent(data) {
-    //   this.isAuthenticated = data.loggedIn;
-    //   this.profile = data.profile;
-    // }
   },
   computed: {
     isAuthenticated() {
       return this.$store.state.auth.loggedIn;
     },
     profile() {
-      return this.$store.state.auth.profile; 
+      return this.$store.state.auth.profile;
     },
   }
 };

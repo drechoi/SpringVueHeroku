@@ -7,14 +7,12 @@ import { store } from './store/store';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 // Import the plugin here
-import AuthPlugin from './plugins/auth';
 import BootstrapVue from 'bootstrap-vue';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Install the authentication plugin here
-Vue.use(AuthPlugin);
 Vue.use(BootstrapVue);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

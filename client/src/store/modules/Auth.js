@@ -15,7 +15,6 @@ const webAuth = new auth0.WebAuth({
 
 export default {
   state: {
-    test: '123',
     loggedIn: false,
     profile: {},
     idToken: null,
@@ -31,14 +30,12 @@ export default {
       return new Promise((resolve, reject) => {
         webAuth.parseHash((err, authResult) => {
           if (err) {
-            console.log('handle web auth error: ');
             reject(err);
           } else {
-            console.log('handle web auth');
-            console.log(authResult);
-            this.dispatch('localLogin', authResult);
-
-            resolve(authResult);
+            this.dispatch('localLogin', authResult)
+              .then(() => {
+                resolve(authResult);
+              });
           }
         });
       });
@@ -53,8 +50,10 @@ export default {
           if (err) {
             reject(err);
           } else {
-            this.dispatch('localLogin', authResult);
-            resolve(authResult);
+            this.dispatch('localLogin', authResult)
+              .then(() => {
+                resolve(authResult);
+              });
           }
         });
       });
@@ -68,29 +67,42 @@ export default {
         returnTo: window.location.origin
       });
     },
-    localLogin: ({commit}, authResult) => {
-      Api().post('user/login',
-        {
-          extId: '123',
-          userName: 'test1234',
-        })
-        .then(response => {
-          commit('login', authResult);
-          localStorage.setItem(localStorageKey, 'true');
-        })
-        .catch((err) => {
-          console.log(err);
-          // failed commit logout
-          // this.dispatch('logout');
-          this.dispatch('logout');
-        });
+    localLogin: ({commit, dispatch}, authResult) => {
+      return new Promise((resolve, reject) => {
+        let extProfile = authResult.idTokenPayload;
+        Api()
+          .post('user/login',
+            {
+              extId: extProfile.sub,
+              userName: extProfile.name,
+              picture: extProfile.picture,
+            })
+          .then(response => {
+            const newState = {
+              profile: response.data,
+              idToken: authResult.idToken,
+              tokenExpiry: new Date(authResult.idTokenPayload.exp * 1000),
+            };
+            console.log(newState);
+            commit('login', newState);
+            localStorage.setItem(localStorageKey, 'true');
+            resolve();
+          })
+          .catch((err) => {
+            console.log('login failed');
+            console.log(err);
+            // failed commit logout
+            // this.dispatch('logout');
+            dispatch('logout');
+          });
+      });
     },
   },
   mutations: {
-    login(state, authResult) {
-      state.idToken = authResult.idToken;
-      state.profile = authResult.idTokenPayload;
-      state.tokenExpiry = new Date(state.profile.exp * 1000);
+    login(state, newState) {
+      state.idToken = newState.idToken;
+      state.profile = newState.profile;
+      state.tokenExpiry = newState.tokenExpiry;
       state.loggedIn = true;
     },
     logout(state) {

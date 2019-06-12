@@ -21,13 +21,16 @@
 export default {
   data() {
     return {
-      profile: this.$auth.profile
+      profile: this.$store.state.auth.profile
     };
   },
   methods: {
     handleLoginEvent(data) {
       this.profile = data.profile;
     }
+  },
+  computed: {
+    // profile: $store.state.auth.profile
   }
 };
 </script>

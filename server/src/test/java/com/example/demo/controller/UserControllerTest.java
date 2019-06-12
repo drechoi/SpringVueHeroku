@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.model.User;
+import com.example.demo.model.AppUser;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -21,9 +21,9 @@ public class UserControllerTest {
     @Test
     public void testFindOneByValidExtId(){
         String extId  = "test-ext-id-01";
-        User expectedUser = User.builder().id(1).extId(extId).build();
+        AppUser expectedUser = AppUser.builder().extId(extId).build();
 
-        User user = userController.findUserByExternalId(extId);
+        AppUser user = userController.findUserByExternalId(extId);
         assertThat(user, is(expectedUser));
     }
 
@@ -31,7 +31,7 @@ public class UserControllerTest {
     public void testFindOneByInvalidExtId(){
         String extId  = "any non exists id";
 //        User expectedUser = null;
-        User user = userController.findUserByExternalId(extId);
+        AppUser user = userController.findUserByExternalId(extId);
         assertThat(user, is(nullValue()));
     }
 
@@ -39,14 +39,14 @@ public class UserControllerTest {
 	public void testCreateNewUser(){
     	String extId = "new-ext-id";
 
-	    User nonExistsUser = userController.findUserByExternalId(extId);
+	    AppUser nonExistsUser = userController.findUserByExternalId(extId);
 	    assertThat(nonExistsUser, is(nullValue()));
 
 	    // create a new user
-    	User newUser = User.builder().extId("new-ext-id").build();
+    	AppUser newUser = AppUser.builder().extId("new-ext-id").build();
 	    userController.createUser(newUser);
 
-	    User createResult  = userController.findUserByExternalId(extId);
+	    AppUser createResult  = userController.findUserByExternalId(extId);
 	    System.out.println(createResult);
 	    System.out.println(newUser);
 	    assertThat(createResult, is(newUser));

@@ -1,0 +1,18 @@
+{
+	"owner": {
+	    "extId": "ext-id-001",
+	    "userName": "user-001",
+	    "picture": "na"	 },
+	"backers": [{
+	    "extId": "ext-id-002",
+	    "userName": "user-002",
+	    "picture": "na"	}],
+	"participants": [{
+	    "extId": "ext-id-003",
+	    "userName": "user-003",
+	    "picture": "na"	},
+	    {
+	    "extId": "ext-id-004",
+	    "userName": "user-004",
+	    "picture": "na"	}]
+}

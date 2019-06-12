@@ -21,14 +21,8 @@ public class DemoController {
     private final DemoRepository demoRepository;
 
     @Autowired
-    //public DemoController(RequestMappingHandlerMapping handlerMapping, DemoRepository demoRepository) {
-    public DemoController(RequestMappingHandlerMapping handlerMapping, DemoRepository demoRepository) {
+    public DemoController(DemoRepository demoRepository) {
         this.demoRepository = demoRepository;
-
-        logger.info("--- Showing me all controllers endpoint ---");
-        for(RequestMappingInfo info : handlerMapping.getHandlerMethods().keySet()) {
-            logger.info(info.toString());
-        }
     }
 
 	@GetMapping("/")
