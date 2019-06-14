@@ -8,11 +8,11 @@
     </b-dropdown>
     <b-card-group deck>
       <createWishItem />
-      <wishItem v-for="todo in items" :key="todo.id" :item="todo" />
+      <wishItem v-for="todo in todos" :key="todo.id" :item="todo" />
     </b-card-group>
 
-    <p>Completed Tasks: {{ items.filter(todo => { return todo.done === true }).length }}</p>
-    <p>Pending Tasks: {{ items.filter(todo => { return todo.status === 'New' }).length }}</p>
+    <p>Completed Tasks: {{ todos.filter(todo => { return todo.done === true }).length }}</p>
+    <p>Pending Tasks: {{ todos.filter(todo => { return todo.status === 'New' }).length }}</p>
   </div>
 </template>
 

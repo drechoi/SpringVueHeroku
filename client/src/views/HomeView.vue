@@ -14,6 +14,7 @@
     <p>
       --- this is wish list ---
     </p>
+    {{ $store.state.wish.wishItems }}
     <WishList :todos="$store.state.wish.wishItems" />
   </div>
 </template>

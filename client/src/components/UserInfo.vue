@@ -8,7 +8,7 @@
                rounded="circle" />
       </b-col>
       <b-col md="6">
-        <b-card-body :title="name">
+        <b-card-body :title="userName">
           <b-card-text>This is user info !!!</b-card-text>
           <b-card-text>{{ state }}</b-card-text>
         </b-card-body>
@@ -20,7 +20,7 @@
 <script>
 export default {
   props: {
-    name: {
+    userName: {
       type: String,
       default: '[User]',
       required: true,
