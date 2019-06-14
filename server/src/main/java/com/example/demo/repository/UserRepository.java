@@ -1,10 +1,14 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.AppUser;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import com.example.demo.model.AppUser;
 
 public interface UserRepository extends JpaRepository<AppUser, Long> {
-    List<AppUser> findByExtId(String extId);
+    Optional<AppUser> findByExtId(String extId);
+ 
+    List<AppUser> findByUserNameContaining(String userName);
 }

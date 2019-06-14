@@ -9,7 +9,7 @@ import lombok.ToString;
 
 @Entity
 @Data
-@ToString(exclude = {"backers", "participants"})
+@ToString(exclude = {"backers", "joiners"})
 public class Scheme {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,6 @@ public class Scheme {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="backedScheme")
 	private Set<Backer> backers;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="participatedScheme")
-	private Set<Participant> participants;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="joinedScheme")
+	private Set<Joiner> joiners;
 }

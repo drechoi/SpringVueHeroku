@@ -1,17 +1,16 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Demo;
-import com.example.demo.repository.DemoRepository;
+import java.util.List;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import java.util.List;
+import com.example.demo.model.Demo;
+import com.example.demo.repository.DemoRepository;
 
 @RestController
 @RequestMapping(path="${api_prefix}/demo")
