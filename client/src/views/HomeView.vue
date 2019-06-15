@@ -18,8 +18,9 @@
     <WishList :todos="$store.state.wish.wishItems" />
 
     <p>
-    --- env variables ---
-    {{ rootApi }}
+    --- env api root variables ---<br/>>
+    {{ rootApi }}<br/>>
+    --- env api root variables ---<br/>>
     </p>
   </div>
 </template>
