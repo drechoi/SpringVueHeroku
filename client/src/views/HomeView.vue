@@ -16,6 +16,11 @@
     </p>
     {{ $store.state.wish.wishItems }}
     <WishList :todos="$store.state.wish.wishItems" />
+
+    <p>
+    --- env variables ---
+    {{ rootApi }}
+    </p>
   </div>
 </template>
 
@@ -25,12 +30,18 @@ import WishItem from '@/components/wishItem';
 import UserInfo from '@/components/UserInfo';
 
 export default {
+  mounted() {
+    console.log(process.env.ROOT_API);
+  },
   components: {
     WishList,
     WishItem,
     UserInfo,
   },
-  computed: {
+  data() {
+    return {
+      rootApi: process.env.ROOT_API
+    };
   },
   methods: {
     handleOk(bvModalEvt) {

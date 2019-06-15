@@ -9,12 +9,12 @@ import com.example.demo.model.Scheme;
 import com.example.demo.repository.SchemeRepository;
 
 @Controller
-@RequestMapping("${api_prefix}/demo")
+@RequestMapping("${api_prefix}/scheme")
 public class SchemeController {
 	@Autowired
 	private SchemeRepository schemeRepository;
 	
-	@PostMapping("/scheme/create")
+	@PostMapping("/create")
 	public void createScheme(Scheme scheme){
 		schemeRepository.save(scheme);
 	}
