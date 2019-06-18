@@ -70,6 +70,7 @@ export default {
     localLogin: ({commit, dispatch}, authResult) => {
       return new Promise((resolve, reject) => {
         let extProfile = authResult.idTokenPayload;
+        console.log(extProfile);
         Api()
           .post('user/login',
             {

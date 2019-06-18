@@ -24,5 +24,8 @@ public class AppUser extends BaseEntity{
     private String extId;
 
     private String userName;
+    private String email;
     private String picture;
+        
+    private Scheme defaultScheme;
 }

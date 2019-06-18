@@ -8,12 +8,8 @@
 <script>
 export default {
   created() {
-    console.log('callback create');
-
     this.$store.dispatch('handleWebAuth')
       .then(result => {
-        console.log('Callback then, target');
-        console.log(result);
         this.$router.push(result.appState.target || '/');
       })
       .catch(error => {
@@ -23,11 +19,10 @@ export default {
 
     // this.$auth.handleAuthentication();
   },
-  methods: {
-    handleLoginEvent(data) {
-      console.log('callback handle login event');
-      this.$router.push(data.state.target || '/');
-    }
-  },
+  // methods: {
+  //   handleLoginEvent(data) {
+  //     this.$router.push(data.state.target || '/');
+  //   }
+  // },
 };
 </script>

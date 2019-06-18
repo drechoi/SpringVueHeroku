@@ -14,9 +14,10 @@
     <b-collapse id="nav_collapse" is-nav>
       <b-navbar-nav>
         <template v-if="isAuthenticated">
-          <b-nav-item to="/Profile" active-class="active" exact>User Info</b-nav-item>
+          <b-nav-item to="/Profile" active-class="active" exact>User</b-nav-item>
           <b-nav-item to="/showData" active-class="active" exact>Feed [later]</b-nav-item>
           <b-nav-item to="/user" active-class="active">My little adventurer</b-nav-item>
+          <b-nav-item to="/scheme" active-class="active">Schemes</b-nav-item>
           <b-nav-item to="/wishList" active-class="active" exact>Wish List</b-nav-item>
         </template>
       </b-navbar-nav>
