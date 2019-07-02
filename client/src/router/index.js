@@ -27,11 +27,13 @@ const router = new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: Profile
+      component: Profile,
+      meta: { requiresAuth: true }
     },
     {
       path: '/debug',
-      component: DebugView
+      component: DebugView,
+      meta: { requiresAuth: true }
     },
     {
       path: '*',
@@ -44,14 +46,27 @@ var debug = false;
 router.beforeEach((to, from, next) => {
   if (debug) return next();
 
-  if (to.path === '/' || to.path === '/home' || to.path === '/callback' || store.state.auth.loggedIn) {
+  console.log(to);
+  console.log(to.matched);
+  console.log(to.matched.length);
+
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.state.auth.loggedIn) {
+      return next();
+    } else {
+      store.dispatch('login', { target: to.path });
+    }
+  } else {
     return next();
   }
+  // if (to.path === '/' || to.path === '/home' || to.path === '/callback' || store.state.auth.loggedIn) {
+  //   return next();
+  // }
 
   // Specify the current path as the customState parameter, meaning it
   // will be returned to the application after auth
   // auth.login({ target: to.path });
-  store.dispatch('login', { target: to.path });
+  // store.dispatch('login', { target: to.path });
 });
 
 // Existing export

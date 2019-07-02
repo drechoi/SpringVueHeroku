@@ -2,7 +2,7 @@
   <b-navbar
     toggleable="md"
     type="dark"
-    variant="dark">
+    variant="primary">
     <template v-if="isAuthenticated">
       <b-navbar-toggle target="nav_collapse" />
     </template>

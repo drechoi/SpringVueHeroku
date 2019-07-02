@@ -1,5 +1,7 @@
+<template>
+  <div>Page not found</div>
+</template>
 <script>
 export default {
-  template: '<div>Not found</div>'
 };
 </script>

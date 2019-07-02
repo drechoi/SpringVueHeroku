@@ -13,14 +13,14 @@
         <b-col>
           <p class="c3">Task List & history?</p>
           <b-card>Some stats -- completed - 2, pending - 3</b-card>
-          <b-card v-for="task in taskList" :v-key="task.title">
+          <b-card v-for="task in taskList" :key="task.title">
             Task!
           </b-card>
         </b-col>
         <b-col>
           <p class="c3">Special Rewards</p>
           <b-card>Items Count - 99</b-card>
-          <b-card v-for="task in taskList" :v-key="task.title">
+          <b-card v-for="task in taskList" :key="task.title">
             Task!
           </b-card>
         </b-col>

@@ -10,7 +10,10 @@
       {{ updateLocalStorage() }}
     </p>
     <div>
-      --- this is Current user info ---
+      <Achievement :title="dummy" :type="daily" :star="3"/>
+    </div>
+    <div>
+      --- this is Current user info 1 ---
       {{todo}}
       <b-button @click="getTodoTest">getTodo</b-button>
       <p>
@@ -24,6 +27,7 @@
 import WishList from '@/components/wishList';
 import WishItem from '@/components/wishItem';
 import UserInfo from '@/components/UserInfo';
+import Achievement from '@/components/Achievement';
 
 // import DemoService from '@/services/api/DemoService';
 // import axios from 'axios';
@@ -35,6 +39,7 @@ export default {
     WishList,
     WishItem,
     UserInfo,
+    Achievement,
   },
   data() {
     return {

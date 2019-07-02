@@ -34,3 +34,8 @@ export default {
   }
 };
 </script>
+<style module>
+  .tmp {
+    color: orange;
+  }
+</style>

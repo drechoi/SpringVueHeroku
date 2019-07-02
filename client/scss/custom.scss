@@ -1,0 +1,18 @@
+
+$body-bg: #ddd;
+$container-bg: #fff;
+// primary text
+$body-color: #212121;
+// secondary text
+// SECONDARY TEXT#757575
+// $body-color: #F5F5F5;
+$secondary-text-color: #757575;
+
+$theme-colors: (  
+  "primary": #C51162,
+  "secondary": #4DB6AC,
+  "custom": #EF9A9A,
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';

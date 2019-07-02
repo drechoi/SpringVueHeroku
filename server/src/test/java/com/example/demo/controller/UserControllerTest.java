@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.example.demo.exception.AppException;
 import com.example.demo.model.AppUser;
-import com.example.demo.model.dto.UserInfoDTO;
 import com.example.demo.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
@@ -41,7 +41,7 @@ public class UserControllerTest {
 //    }
 
     @Test
-	public void testLoginNewUser(){
+	public void testLoginNewUser() throws AppException{
     	String extId = "new-ext-id";
 
     	// check user is not exists
@@ -50,7 +50,8 @@ public class UserControllerTest {
 
 	    // create a new user
     	AppUser newUser = AppUser.builder().extId("new-ext-id").build();
-	    UserInfoDTO userInfo = userController.login(newUser);
+	    // UserInfoDTO userInfo = userController.login(newUser);
+    	boolean loginResult = userController.login(newUser);
 
 	    // user can now be found in repository
 	    AppUser createResult  = userRepository.findByExtId(extId).orElse(null);
@@ -58,22 +59,23 @@ public class UserControllerTest {
 	    System.out.println(newUser);
 	    assertThat(createResult, is(newUser));
 	    
-	    System.out.println(userInfo);
+	    // System.out.println(userInfo);
 //	    assertThat(userInfo, is(newUser));
     }
 
 
     @Test
-	public void testLoginExistingUser(){
+	public void testLoginExistingUser() throws AppException{
     	String extId = "test-ext-id-02";
 
 	    // create a new user
     	AppUser newUser = AppUser.builder().extId(extId).build();
-	    UserInfoDTO userInfo = userController.login(newUser);
+	    // UserInfoDTO userInfo = userController.login(newUser);
+    	boolean loginResult = userController.login(newUser);
 
 	    
 	    System.out.println("output user info");
-	    System.out.println(userInfo);
+//	    System.out.println(userInfo);
 //	    assertThat(userInfo, is(newUser));
     }
 }

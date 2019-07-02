@@ -9,8 +9,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 // Import the plugin here
 import BootstrapVue from 'bootstrap-vue';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+import '../scss/custom.scss';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+require('./utils/iconUtil');
 
 // Install the authentication plugin here
 Vue.use(BootstrapVue);

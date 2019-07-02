@@ -14,6 +14,7 @@ public class UserInfoDTO {
     private String userName;
     private String picture;
     
-	private List<Scheme> backedSchemes;
-	private List<Scheme> joinedSchemes;
+    private Scheme defaultScheme;
+	private List<SchemeInfoDTO> backedSchemes;
+	private List<SchemeInfoDTO> joinedSchemes;
 }

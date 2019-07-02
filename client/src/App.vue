@@ -49,12 +49,24 @@ export default {
 };
 </script>
 
-<style>
+<style module>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.main {
+  text-align: left;
+}
+
+.container {
+  background-color: white;
+}
+
+.container-bg {
+  background-color: #fff;
 }
 </style>

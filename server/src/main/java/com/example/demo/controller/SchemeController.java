@@ -18,4 +18,8 @@ public class SchemeController {
 	public void createScheme(Scheme scheme){
 		schemeRepository.save(scheme);
 	}
+	
+	public Scheme getScheme(String loginToken){
+		return null;
+	}
 }
