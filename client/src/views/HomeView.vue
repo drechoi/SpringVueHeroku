@@ -4,8 +4,8 @@
 
     <b-row class="mb-2">
       <b-col md="6" lg="4" align-self="end">
-        <b-card class="sub-container">
-          <h4>Achievements</h4>
+        <b-card header-tag="header" class="sub-container">
+          <h4 slot="header">Achievements</h4>
           <Achievement title="Dummy" type="daily" :stars="3" />
           <Achievement title="Dummy" type="adhoc" :stars="2" />
           <Achievement title="Dummy" type="daily" :stars="1" />
@@ -13,12 +13,18 @@
       </b-col>
       <b-col md="6" lg="4">
         <b-card class="sub-container">
-          Placeholder 1
+          <h4 slot="header">
+            <font-awesome-icon :icon="['fas', 'piggy-bank']" />
+            Tasks / Jobs / Quests ...
+          </h4>
         </b-card>
       </b-col>
       <b-col md="6" lg="4">
         <b-card class="sub-container">
-          Placeholder 2
+          <h4 slot="header">
+            <font-awesome-icon :icon="['fas', 'piggy-bank']" />
+            Rewards and wishes
+          </h4>
         </b-card>
       </b-col>
     </b-row>
@@ -99,5 +105,7 @@ export default {
   }
 
   .main-container{
+    background-color: #fff;
   }
+
 </style>

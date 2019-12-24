@@ -59,14 +59,6 @@ router.beforeEach((to, from, next) => {
   } else {
     return next();
   }
-  // if (to.path === '/' || to.path === '/home' || to.path === '/callback' || store.state.auth.loggedIn) {
-  //   return next();
-  // }
-
-  // Specify the current path as the customState parameter, meaning it
-  // will be returned to the application after auth
-  // auth.login({ target: to.path });
-  // store.dispatch('login', { target: to.path });
 });
 
 // Existing export

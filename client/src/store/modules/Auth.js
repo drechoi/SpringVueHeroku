@@ -90,7 +90,7 @@ export default {
             resolve();
           })
           .catch((err) => {
-            alert('failed to connect server');
+            alert('failed to connect application server');
             console.log('login failed');
             console.log(err);
             // failed commit logout

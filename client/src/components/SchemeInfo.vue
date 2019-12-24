@@ -1,8 +1,12 @@
 <template>
   <b-card class="mb-3">
-    <div slot="header" class="header"><strong>Scheme name</strong></div>
+    <div slot="header" class="header"><strong>[Scheme name]</strong></div>
     <p>
       Backers: argaerg, aergarg; aegrareg
+    </p>
+    <p>
+      <Strong>Members:</Strong> member1, member2... create member?
+      <b-button>+</b-button>
     </p>
 
   </b-card>
